@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   chaperoo-client:
-    image: jordangrindrod/chaperoo-client
+    image: horners/chaperoo-client:${app_version}
     build: .
     ports:
       - target: 80
@@ -15,7 +15,7 @@ services:
   chaperoo-db:
     image: jordangrindrod/chaperoo-db
     environment:
-      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
   jenkins:
     image: jenkins/jenkins:latest
     environment:
